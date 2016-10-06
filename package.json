@@ -1,0 +1,31 @@
+{
+  "name": "transl8r",
+  "version": "1.0.0",
+  "description": "site that takes text input and converts it to sound...music?",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithunder916/transl8r.git"
+  },
+  "keywords": [
+    "music",
+    "words",
+    "poetry"
+  ],
+  "author": "sue & mithun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mithunder916/transl8r/issues"
+  },
+  "homepage": "https://github.com/mithunder916/transl8r#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "tone": "^0.8.0"
+  }
+}
