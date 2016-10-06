@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Transl8r</title>
+
+    <script type="text/javascript" src="/tone/Tone.js"></script>
+
+
+  </head>
+  <body>
+
+
+	<script type="text/javascript">
+
+  var synth = new Tone.PolySynth(6, Tone.Synth, {
+    "oscillator" : {
+      "partials" : [0, 2, 3, 4],
+    }
+    }).toMaster();
+
+  //AutoPanner - a penning modulation effect
+  var panner = new Tone.AutoPanner({
+    "frequency" : 4,
+    "depth" : 1
+  }).toMaster().start();
+
+  //AutoFilter - a filter modulation effect
+  var filter = new Tone.AutoFilter({
+    "frequency" : 2,
+    "depth" : 0.6
+  }).toMaster().start();
+
+  //Tremolo - an amplitude modulation effect
+  var tremolo = new Tone.Tremolo({
+    "frequency" : 0.6,
+    "depth" : 0.7
+  }).toMaster().start();
+
+  </script>
+
+  <script type="text/javascript">
+
+  synth.connect(tremolo).connect(filter);
+
+  synth.triggerAttackRelease("D4", "+1", "1n")
+  synth.triggerAttackRelease("F#4", "+1", "2n")
+  synth.triggerAttackRelease("A5", "+1", "4n")
+  synth.triggerAttackRelease("C5", "+1", "8n")
+
+  synth.triggerAttack("C4", "1n", ".8")
+  synth.triggerAttack("E4", "1n", ".8")
+  synth.triggerAttack("G4", "1n", ".8")
+  synth.triggerAttack("B5", "1n", ".8")
+
+  </script>
+
+  <p>
+    We'll turn your words into music.
+    hello.
+  </p>
+
+  </body>
+</html>

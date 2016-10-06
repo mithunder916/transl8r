@@ -1,10 +1,16 @@
 var express = require('express');
 var router = require('./routes');
+var nunjucks = require('nunjucks');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
 
 var app = express();
+
+//nunjucks
+nunjucks.configure('views', { noCache: true });
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
 
 //logging and body-parsing
 app.use(morgan('dev'));
@@ -13,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //static routing
 app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use('/tone', express.static(path.join(__dirname, '/node_modules/tone/build/')))
 app.use(express.static(path.join(__dirname, '/public')));
 
 //routers
