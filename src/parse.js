@@ -18,13 +18,27 @@ var Parse = {
 		return arrayifiedText.map(function(element){
 			if (/[.,\/#!$%\^&\*;:{}=\-_`~()]/g.test(element)) var type = 'punctuation';
 			else type = 'word';
-			
+
 			return {
 				text: element,
-				type: type
+				type: type,
+				length: element.length
 			}
 		})
 	}
 }
+
+/*
+
+	TO DO:
+	1). Finish the test specs for Parse.objectifyText
+
+	2). Make Parse method, partOfSpeech, that adds a part of speech
+		property if the element is a word that tells the part of speech
+		(noun, verb, adjective, etc.)
+
+	3). Test specs for partOfSpeech method
+
+*/
 
 module.exports = Parse;
