@@ -1,5 +1,5 @@
 var express = require('express');
-var router = require('./routes');
+var routes = require('./routes');
 var nunjucks = require('nunjucks');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -23,7 +23,7 @@ app.use('/tone', express.static(path.join(__dirname, '/node_modules/tone/build/'
 app.use(express.static(path.join(__dirname, '/public')));
 
 //routers
-app.use(router);
+app.use(routes);
 
 //error handling
 app.use(function (req, res, next) {
@@ -43,6 +43,7 @@ app.use(function (err, req, res, next) {
 // server
 var port = 3000;
 app.listen(port);
+
 // app.listen(port, function () {
 //   db.sync()
 //     .then(function () {
